@@ -1,0 +1,155 @@
+.userswrapper {
+  display: flex;
+  height: 100%;
+}
+
+.flex_cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 180px;
+  margin: 15px;
+  text-align: center;
+  font-family: arial;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card_img {
+  width: 100%;
+  height: auto;
+  padding-top: 10px;
+}
+
+.card_userimg {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+
+.text_card {
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.card {
+  text-decoration: none;
+}
+
+.card>h3 {
+  margin: 6px;
+}
+
+.card>p {
+  margin: 8px;
+}
+
+.card_team {
+  height: 50px;
+  width: 50px;
+}
+
+/* newuserfile */
+
+.adduserwrapper {
+  display: flex;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.genralform {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+.generalabel {
+  display: block;
+  width: 100%;
+}
+
+.fileinput {
+  display: block;
+  margin: 'auto';
+  visibility: hidden;
+}
+
+.chooseimg {
+  background: #212121;
+  background-image: -webkit-linear-gradient(top, #212121, #212121);
+  background-image: -moz-linear-gradient(top, #212121, #212121);
+  background-image: -ms-linear-gradient(top, #212121, #212121);
+  background-image: -o-linear-gradient(top, #212121, #212121);
+  background-image: linear-gradient(to bottom, #212121, #212121);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.chooseimg:hover {
+  background: #807780;
+  background-image: -webkit-linear-gradient(top, #807780, #807780);
+  background-image: -moz-linear-gradient(top, #807780, #807780);
+  background-image: -ms-linear-gradient(top, #807780, #807780);
+  background-image: -o-linear-gradient(top, #807780, #807780);
+  background-image: linear-gradient(to bottom, #807780, #807780);
+  text-decoration: none;
+}
+
+.submitbtn {
+  position: relative;
+  bottom: 1.5rem;
+  width: 3.5rem;
+  height: 2.5rem;
+  border-style: none;
+  border-radius: 20px;
+  background-color: #212121;
+  color: #fff;
+  font-size: 10px;
+  font-family: arial;
+}
+
+.submitbtn:hover {
+  background: #807780;
+}
+
+@media only screen and (min-width: 900px) {
+  .userswrapper {
+    display: flex;
+    height: 100vh;
+  }
+  .card {
+    width: 180px;
+    margin: 15px;
+    text-align: center;
+    font-family: arial;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    height: 12.5rem;
+  }
+}
