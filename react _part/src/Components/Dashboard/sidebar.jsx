@@ -38,13 +38,12 @@ function Navbardash() {
                         <NavLink style={{ textDecoration: "none" }} exact to="/users" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="table">users</CDBSidebarMenuItem>
                         </NavLink>
+                        
                         <NavLink style={{ textDecoration: "none" }} exact to="/analytics" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="chart-line">
                                 Analytics
                             </CDBSidebarMenuItem>
                         </NavLink>
-
-
 
                         <NavLink
                             style={{ textDecoration: "none" }}
@@ -57,6 +56,7 @@ function Navbardash() {
                                 404 page
                             </CDBSidebarMenuItem>
                         </NavLink>
+
                     </CDBSidebarMenu>
                 </CDBSidebarContent>
 

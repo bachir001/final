@@ -4,6 +4,8 @@ import Sidebar from '../sidebar';
 import API from '../../../api';
 
 
+
+
 function Newuser() {
 
     const [username, setUsername] = useState();
@@ -32,18 +34,12 @@ function Newuser() {
             body.append('password', password);
             body.append('profilepic', profilepic);
 
-
-
-
-
-
-
-            const res = await API.post(`users`, body, {
+            await API.post(`users`, body, {
                 headers: {
                     'Accept': 'multipart/form-data',
                 },
             });
-            console.log('hi', res);
+            // console.log('hi', res);
 
         } catch (e) {
             console.log(e);

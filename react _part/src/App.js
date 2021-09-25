@@ -6,6 +6,9 @@ import Profile from "./Components/Dashboard/profile";
 import Users from "./Components/Dashboard/users/users";
 import Newuser from "./Components/Dashboard/users/newuser";
 import Edituser from "./Components/Dashboard/users/edituser";
+import Shops from "./Components/Dashboard/shops/shops";
+import Newshop from "./Components/Dashboard/shops/newshops";
+import Editshop from "./Components/Dashboard/shops/editshops";
 import './App.css';
 
 function App() {
@@ -20,7 +23,12 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route exact path="/users" component={Users} />
           <Route exact path="/users/add" component={Newuser}/>
-          <Route exact path="/users/edit/:id" component={Edituser}/> 
+          <Route exact path="/users/edit/:id" component={Edituser}/>
+          <Route exact path="/shops" component={Shops}/> 
+          <Route exact path="/shops/add" component={Newshop}/>
+          <Route exact path="/shops/edit/:id" component={Editshop}/>
+
+          
           
 
         </Switch>

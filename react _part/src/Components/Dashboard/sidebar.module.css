@@ -1,9 +1,15 @@
 .sidebar {
-    display: flex;
     height: 100%;
-    top: 0;
-    left: 0;
-    overflow: hidden;
     color: aliceblue;
     background-color: #333;
+}
+
+
+
+
+@media (min-height: 550px)and (min-width: 900px) {
+    .sidebar {
+        height: 100vh ;
+    }
+
 }
