@@ -5,8 +5,7 @@ const ShopSchema = new Schema({
     shopname: {
         type: String,
         unique: true,
-        trim: true,
-        maxLength: 20,
+        maxLength: 30,
         required: true,
     },
     locationInfo: {
@@ -17,7 +16,7 @@ const ShopSchema = new Schema({
     phonenumber: {
         type: Number,
         trim: true,
-        maxLength: 20,
+        maxLength: 8,
         unique: true,
         required: true,
     },
@@ -25,6 +24,10 @@ const ShopSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true,
+    },
+    shopimg:{
+      type: String,
+      required:true,
     }
 }, {
     collection:'shops'

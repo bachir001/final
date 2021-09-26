@@ -20,19 +20,42 @@ class ShopController {
     }
 
     // add  a shop 
-    addshop(req, res, next) {
+    async addshop(req, res, next) {
+
         let body = req.body;
-        let shop = new Shop(body);
-        shop.save((err, response) => {
-            if (err) return res.send(shop);
+        let shopname = body.shopname;
+        let locationInfo = body.locationInfo;
+        let phonenumber = body.phonenumber;
+        let shopadder = body.shopadder;
+
+        if (req.file === undefined) {
+            return res.send("image can't be void");
+        } else {
+            var shopimg = [req.file.filename].toString();
+        }
+        const newShop = new Shop({
+            shopname,
+            locationInfo,
+            shopimg,
+            phonenumber,
+            shopadder,
+
+        });
+
+
+        newShop.save((err, response) => {
+            if (err) return res.send(newShop);
             res.status(200).send(response);
         });
+
+
     }
 
     // read by id 
 
     getshopbyid(req, res, next) {
         let { id } = req.params;
+
         Shop.findById(id, (err, response) => {
             if (err) return next(err);
             res.status(200).send(response);
@@ -41,14 +64,80 @@ class ShopController {
 
     // update shop 
 
-    updateshop(req, res, next) {
+    async updateshop(req, res, next) {
 
         let { id } = req.params;
         let body = req.body;
 
+        let shopname = body.shopname;
+        let locationInfo = body.locationInfo;
+        let phonenumber = body.phonenumber;
+        let shopadder = body.shopadder;
+
+        if (req.file === undefined) {
+
+            var shopimg = undefined;
+
+
+            await Shop.findById(id, (err, response) => {
+                if (err) return res.send(err);
+                var shop = response;
+                if (shopimg === undefined) {
+                    shopimg = shop.shopimg
+                }
+            })
+        } else {
+            var shopimg = [req.file.filename].toString();
+        }
+
+        await Shop.findById(id, (err, response) => {
+            if (err) return next(err);
+            var shop = response;
+            if (shopname === undefined) {
+                shopname = shop.shopname
+            }
+        })
+
+        await Shop.findById(id, (err, response) => {
+            if (err) return next(err);
+            var shop = response;
+            if (locationInfo === undefined) {
+                locationInfo = shop.locationInfo
+            }
+        })
+
+
+
+        await Shop.findById(id, (err, response) => {
+            if (err) return next(err);
+            var shop = response;
+            if (phonenumber === undefined) {
+                phonenumber = shop.phonenumber
+            }
+        })
+
+        await Shop.findById(id, (err, response) => {
+            if (err) return next(err);
+            var shop = response;
+            if (shopadder === undefined) {
+                shopadder = shop.shopadder
+            }
+        })
+
+
+
         Shop.updateOne({ _id: id }, {
-            $set: body
+            $set: {
+                body,
+                locationInfo,
+                shopname,
+                shopadder,
+                shopimg,
+                phonenumber,
+            }
+
         }, (err, response) => {
+
             if (err) return res.send(err);
             res.status(200).send(response);
         });

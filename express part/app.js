@@ -40,7 +40,7 @@ mongoose.connect(process.env.connectionString, {
 
 
 var usersRouter = require('./routes/users')(upload);
-var shopsRouter = require('./routes/shops');
+var shopsRouter = require('./routes/shops')(upload);
 var subsRouter = require('./routes/subscribers');
 var contactRouter= require('./routes/contacts');
 var reviewRouter= require('./routes/reviews');

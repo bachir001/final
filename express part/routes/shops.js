@@ -3,6 +3,9 @@ var shopController = require('../Controller/shopsController');
 var router = express.Router();
 
 
+module.exports = (upload) => {
+
+
 /* GET shops listing. */
 router.get('/', shopController.getAllshops);
 
@@ -11,20 +14,23 @@ router.get('/', shopController.getAllshops);
 
 router.get('/addername',shopController.getShopsAdderName);
 
-/* GET users by id . */
+/* GET shop by id . */
 router.get('/:id', shopController.getshopbyid);
 
 
-// add user 
-router.post('/', shopController.addshop);
+// add shop 
+router.post('/', upload.single('shopimg'), shopController.addshop);
 
 
-// update user 
-router.put('/:id', shopController.updateshop);
+
+// update shop 
+router.put('/:id', upload.single('shopimg'), shopController.updateshop);
 
 
-// delete user 
+// delete shop 
 router.delete('/:id', shopController.deleteshop);
+
+
 
 
 // test router  
@@ -34,4 +40,6 @@ router.get('/test', function (req, res, next) {
 });
 
 
-module.exports = router;
+return router;
+
+}
