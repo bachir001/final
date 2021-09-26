@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import styles from '../users/userdesign.module.css';
+import { State, City } from 'country-state-city';
 import Sidebar from '../sidebar';
 import API from '../../../api';
 
@@ -10,6 +11,25 @@ function Newshop() {
     const [locationInfo, setLocationInfo] = useState();
     const [phonenumber, setPhonenumber] = useState();
     const [shopimg, setShopimg] = useState();
+    const [cities, setCities] = useState([]);
+    const [region, setRegion] = useState('nothing');
+
+
+
+
+    const leb = State.getStatesOfCountry('LB');
+
+
+    const dealwithregion = async (code) => {
+
+        setRegion("filled");
+        console.log("the code", code);
+
+        setCities(City.getCitiesOfState('LB', code.toString()));
+        console.log("hiiiiiii", cities);
+
+    }
+
 
     var file;
 
@@ -64,16 +84,77 @@ function Newshop() {
                 </label>
 
 
-                <label htmlFor="location Info" className={styles.generalabel}>
-                    Location :
-                    <input className="inputu" type="text" name="locationInfo" required onChange={(e) => { setLocationInfo(e.target.value) }} />
+
+                <label htmlFor="regionInfo" >
+                    Select Region :
+                    <br />
+                    <select
+                        required
+                        name="regionInfo"
+                        className="inputu"
+                        onChange={e => dealwithregion(e.target.value)}
+                    >
+                        <option value="">None</option>
+
+                        {leb.map((lb) => {
+                            return (
+                                <option
+                                    value={lb.isoCode}
+                                    key={lb.name}
+                                >{lb.name}
+                                </option>
+                            )
+                        })}
+                    </select>
+
                 </label>
+
+
+                {region !== "nothing" ? (
+
+                    <div>
+
+                        <label htmlFor="regionInfo" >
+
+                            Select City:
+                            <br />
+                            <select
+                                required
+                                name="locationInfo"
+                                className="inputu"
+                                onChange={e => setLocationInfo(e.target.value)}
+                            >
+                                <option value="">None</option>
+
+                                {cities.map((ct) => {
+                                    return (
+                                        <option
+                                            value={ct.name}
+                                            key={ct.name}
+                                        >{ct.name}
+                                        </option>
+                                    )
+                                })}
+
+                            </select>
+
+                        </label>
+
+                        <p>
+
+                        </p>
+
+                    </div>
+                ) : (
+                    <p> </p>
+                )}
+
 
                 <div>
                     <label htmlFor="pic" className={styles.chooseimg}>
                         choose image
                     </label>
-                    <input  className={styles.fileinput}  type="file" id="pic" accept="image/*" multiple={false} onChange={onChangeFile} required />
+                    <input className={styles.fileinput} type="file" id="pic" accept="image/*" multiple={false} onChange={onChangeFile} required />
                 </div>
 
                 <div>

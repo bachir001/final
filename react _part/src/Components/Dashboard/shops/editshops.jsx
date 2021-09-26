@@ -1,14 +1,12 @@
 import { React, useState, useEffect } from 'react';
 import styles from '../users/userdesign.module.css';
+import { State, City } from 'country-state-city';
 import Sidebar from '../sidebar';
 import API from '../../../api';
 
 
-import { Country, State, City }  from 'country-state-city';
-// console.log(Country.getAllCountries())
-// console.log(State.getAllStates())
 
- console.log(); Country.getCountryByCode('lb')
+
 
 function Editshop({ match }) {
 
@@ -17,7 +15,8 @@ function Editshop({ match }) {
     const [locationInfo, setLocationInfo] = useState();
     const [phonenumber, setPhonenumber] = useState();
     const [shopimg, setShopimg] = useState();
-    const [regions, setRegions] = useState([]);
+    const [region, setRegion] = useState('nothing');
+    const [cities, setCities] = useState([]);
 
 
     var file;
@@ -30,30 +29,19 @@ function Editshop({ match }) {
     }
 
 
-    const getRegion = async () => {
-
-        try {
+    const leb = State.getStatesOfCountry('LB');
 
 
-            let res = await fetch('https://battuta.medunes.net/api/region/lb/all/?key=8520f2581dd790b528e9773194f5e3ff', {
-                method: 'get',
-                  
-            });
-
-            console.log("hiiii",res);
-            setRegions(res);
 
 
-            // await axios.get(`https://battuta.medunes.net/api/region/lb/all/?key=8520f2581dd790b528e9773194f5e3ff`).then((res) => {
-            //     const result = res;
-            //     console.log('hiiii',result);
-            // });
-        } catch (e) {
-            console.log(e);
-        }
+    const dealwithregion = async (code) => {
 
+        setRegion("filled");
+
+        setCities(City.getCitiesOfState('LB', code.toString()));
 
     }
+
 
     const getShop = async () => {
         try {
@@ -82,12 +70,11 @@ function Editshop({ match }) {
             body.append('locationInfo', locationInfo);
             body.append('shopimg', shopimg);
             body.append('shopadder', '614eee3bae058617c4e7c960');
-            const res = await API.put(`shops/${id}`, body, {
+            await API.put(`shops/${id}`, body, {
                 headers: {
                     'Accept': 'multipart/form-data',
                 },
             });
-            console.log('hi', res);
 
         } catch (e) {
             console.log(e);
@@ -96,8 +83,8 @@ function Editshop({ match }) {
 
     useEffect(() => {
         getShop();
-        getRegion();
     }, []);
+
 
     return (
 
@@ -120,30 +107,73 @@ function Editshop({ match }) {
                 </label>
 
 
-                    <label htmlFor="locationInfo" >
-                        Select Region
-                        <br />
-                        <br />
-                        <select
-                            required
-                            name="locationInfo"
-                            className="inputu"
-                            onChange={e => setLocationInfo(e.target.value)}
-                        >
-                            <option value="">None</option>
+                <label htmlFor="regionInfo" >
+                    Select Region :
+                    <br />
+                    <select
+                        required
+                        name="regionInfo"
+                        className="inputu"
+                        onChange={e => dealwithregion(e.target.value)}
+                    >
+                        <option value="">None</option>
 
-                            {regions.map((region_data) => {
-                                return (
-                                    <option
-                                        value={region_data.region}
-                                    >{region_data.region}
-                                    </option>
-                                )
-                            })}
-                        </select>
+                        {leb.map((lb) => {
+                            return (
+                                <option
+                                    value={lb.isoCode}
+                                    key={lb.name}
+                                >{lb.name}
+                                </option>
+                            )
+                        })}
+                    </select>
 
-                    </label>
+                </label>
 
+                <div>
+
+                </div>
+
+
+                {region !== "nothing" ? (
+
+                    <div>
+
+                        <label htmlFor="regionInfo" >
+
+                            Select City:
+                            <br />
+                            <select
+                                required
+                                name="locationInfo"
+                                className="inputu"
+                                onChange={e => setLocationInfo(e.target.value)}
+                            >
+                                <option value="">None</option>
+
+                                {cities.map((ct) => {
+                                    return (
+                                        <option
+                                            value={ct.name}
+                                            key={ct.name}
+                                        >{ct.name}
+                                        </option>
+                                    )
+                                })}
+
+                            </select>
+
+                        </label>
+
+                        <p>
+
+                        </p>
+
+                    </div>
+                ) : (
+                    <p> </p>
+                )}
 
                 <div>
                     <label htmlFor="pic" className={styles.chooseimg}>
@@ -153,7 +183,7 @@ function Editshop({ match }) {
                 </div>
 
                 <div>
-                    <input className={styles.submitbtn} type="submit" value="Add" />
+                    <input className={styles.submitbtn} type="submit" value="Update" />
                 </div>
 
             </form>
