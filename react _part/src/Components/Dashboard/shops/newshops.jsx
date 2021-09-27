@@ -12,6 +12,7 @@ function Newshop() {
     const [phonenumber, setPhonenumber] = useState();
     const [shopimg, setShopimg] = useState();
     const [cities, setCities] = useState([]);
+    const [accept, setAccept] = useState();
     const [region, setRegion] = useState('nothing');
 
 
@@ -23,10 +24,8 @@ function Newshop() {
     const dealwithregion = async (code) => {
 
         setRegion("filled");
-        console.log("the code", code);
 
         setCities(City.getCitiesOfState('LB', code.toString()));
-        console.log("hiiiiiii", cities);
 
     }
 
@@ -40,7 +39,7 @@ function Newshop() {
 
     }
 
-    const adduser = async (e) => {
+    const addshop = async (e) => {
         e.preventDefault(e);
 
         try {
@@ -51,6 +50,7 @@ function Newshop() {
             body.append('phonenumber', phonenumber);
             body.append('locationInfo', locationInfo);
             body.append('shopimg', shopimg);
+            body.append('accept', accept);
             body.append('shopadder', '614eee3bae058617c4e7c960');
             await API.post(`shops`, body, {
                 headers: {
@@ -69,7 +69,7 @@ function Newshop() {
 
             <Sidebar />
 
-            <form onSubmit={adduser} className={styles.genralform}>
+            <form onSubmit={addshop} className={styles.genralform}>
 
 
                 <label htmlFor="shopname" className={styles.generalabel}>
@@ -149,6 +149,27 @@ function Newshop() {
                     <p> </p>
                 )}
 
+                <div >
+                    <p style={{ fontSize: "18px" }}>  shop approvement : </p>
+                    <input
+                        type="radio"
+                        name="paid"
+                        value={"yes"}
+                        onChange={(e) => setAccept(e.target.value)}
+                        required
+                    />
+                    yes
+
+                    <input
+                        type="radio"
+                        className={styles.noradio}
+                        name="paid"
+                        value={"no"}
+                        onChange={(e) => setAccept(e.target.value)}
+                        required
+                    />
+                    no
+                </div>
 
                 <div>
                     <label htmlFor="pic" className={styles.chooseimg}>

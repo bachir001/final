@@ -28,7 +28,7 @@ function Shops() {
 
 
 
-    
+
     const deleteShop = async (id) => {
         const willDelete = await swal({
             title: "Delete",
@@ -73,11 +73,11 @@ function Shops() {
                     {shops.map((sh) => {
                         return (
                             <>
-                                <Col style={{ marginBottom: "2rem" }} >
+                                <Col style={{ marginBottom: "2rem" }} key={sh._id} >
                                     <div className={styles.bordercard} >
                                         <div className={styles.imgwrapper}>
                                             <button
-                                                style={{ backgroundColor: '#fff', color: '#333333', padding: '4.5px', paddingLeft: '8.5px', borderTop: '0', position: 'absolute', top: '0', right: '0', borderStyle:"none",borderBottomLeftRadius:"10%" }}
+                                                style={{ backgroundColor: '#fff', color: '#333333', padding: '4.5px', paddingLeft: '8.5px', borderTop: '0', position: 'absolute', top: '0', right: '0', borderStyle: "none", borderBottomLeftRadius: "10%" }}
                                                 className={styles.link}
                                                 onClick={() => { deleteShop(sh._id) }}
                                             >
@@ -104,6 +104,13 @@ function Shops() {
                                                 <ListGroup className="list-group-flush">
                                                     <ListGroupItem>  {sh.locationInfo} </ListGroupItem>
                                                     <ListGroupItem className={styles.phoneshops}>  {sh.phonenumber} </ListGroupItem>
+                                                    {sh.accept !== "no" ? (
+
+                                                        <ListGroupItem> <i  class="fas fa-check-circle fa-2x"></i>  </ListGroupItem>
+                                                    ) : (
+                                                        <ListGroupItem>  <i class="far fa-times-circle fa-2x"></i> </ListGroupItem>
+
+                                                    )}
                                                 </ListGroup>
 
                                             </Card.Text>

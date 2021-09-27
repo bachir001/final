@@ -1,4 +1,5 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect  } from 'react';
+import { useHistory } from 'react-router';
 import styles from '../users/userdesign.module.css';
 import { State, City } from 'country-state-city';
 import Sidebar from '../sidebar';
@@ -15,8 +16,10 @@ function Editshop({ match }) {
     const [locationInfo, setLocationInfo] = useState();
     const [phonenumber, setPhonenumber] = useState();
     const [shopimg, setShopimg] = useState();
+    const [accept, setAccept] = useState();
     const [region, setRegion] = useState('nothing');
     const [cities, setCities] = useState([]);
+    let history=useHistory();
 
 
     var file;
@@ -69,12 +72,15 @@ function Editshop({ match }) {
             body.append('phonenumber', phonenumber);
             body.append('locationInfo', locationInfo);
             body.append('shopimg', shopimg);
+            body.append('accept', accept);
             body.append('shopadder', '614eee3bae058617c4e7c960');
             await API.put(`shops/${id}`, body, {
                 headers: {
                     'Accept': 'multipart/form-data',
                 },
             });
+
+            history.push('/shops');
 
         } catch (e) {
             console.log(e);
@@ -111,7 +117,7 @@ function Editshop({ match }) {
                     Select Region :
                     <br />
                     <select
-                        required
+                        
                         name="regionInfo"
                         className="inputu"
                         onChange={e => dealwithregion(e.target.value)}
@@ -174,6 +180,28 @@ function Editshop({ match }) {
                 ) : (
                     <p> </p>
                 )}
+
+                <div >
+                    <p style={{ fontSize: "18px" }}>  shop approvement : </p>
+                    <input
+                        type="radio"
+                        name="paid"
+                        value={"yes"}
+                        onChange={(e) => setAccept(e.target.value)}
+                        required
+                    />
+                    yes
+
+                    <input
+                        type="radio"
+                        className={styles.noradio}
+                        name="paid"
+                        value={"no"}
+                        onChange={(e) => setAccept(e.target.value)}
+                        required
+                    />
+                    no
+                </div>
 
                 <div>
                     <label htmlFor="pic" className={styles.chooseimg}>
