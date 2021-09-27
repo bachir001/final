@@ -1,7 +1,7 @@
 const { model, Schema } = require('mongoose');
 
 const ShopSchema = new Schema({
-    
+
     shopname: {
         type: String,
         unique: true,
@@ -25,12 +25,17 @@ const ShopSchema = new Schema({
         ref: 'User',
         required: true,
     },
-    shopimg:{
-      type: String,
-      required:true,
+    shopimg: {
+        type: String,
+        required: true,
+    },
+    accept: {
+        type: String,
+        default: "no",
     }
+
 }, {
-    collection:'shops'
+    collection: 'shops'
 });
 
 const ShopModel = model('Shop', ShopSchema);

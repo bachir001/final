@@ -27,6 +27,7 @@ class ShopController {
         let locationInfo = body.locationInfo;
         let phonenumber = body.phonenumber;
         let shopadder = body.shopadder;
+        let accept = body.accept;
 
         if (req.file === undefined) {
             return res.send("image can't be void");
@@ -39,6 +40,7 @@ class ShopController {
             shopimg,
             phonenumber,
             shopadder,
+            accept
 
         });
 
@@ -73,6 +75,7 @@ class ShopController {
         let locationInfo = body.locationInfo;
         let phonenumber = body.phonenumber;
         let shopadder = body.shopadder;
+        let accept = body.accept;
 
         if (req.file === undefined) {
 
@@ -125,6 +128,22 @@ class ShopController {
         })
 
 
+        await Shop.findById(id, (err, response) => {
+            if (err) return next(err);
+            var shop = response;
+            if (shopadder === undefined) {
+                shopadder = shop.shopadder
+            }
+        })
+
+
+        await Shop.findById(id, (err, response) => {
+            if (err) return next(err);
+            var shop = response;
+            if (accept === undefined) {
+                accept = shop.accept
+            }
+        })
 
         Shop.updateOne({ _id: id }, {
             $set: {
@@ -134,6 +153,7 @@ class ShopController {
                 shopadder,
                 shopimg,
                 phonenumber,
+                accept,
             }
 
         }, (err, response) => {
