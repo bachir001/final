@@ -67,13 +67,14 @@ function Shops() {
                     <Sidebar />
                 </div>
 
+
                 <div className={styles.shopscard}>
 
                     <Addcard title="Add Shops" route="/shops/add" />
                     {shops.map((sh) => {
                         return (
                             <>
-                                <Col style={{ marginBottom: "2rem" }} key={sh._id} >
+                                <Col  style={{ marginBottom: "2rem" }} key={sh._id} >
                                     <div className={styles.bordercard} >
                                         <div className={styles.imgwrapper}>
                                             <button

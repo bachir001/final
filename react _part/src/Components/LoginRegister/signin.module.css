@@ -1,0 +1,29 @@
+.genralform {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+  }
+
+  .generalabel {
+    display: block;
+    width: 100%;
+  }
+  
+
+  .submitbtn {
+    position: relative;
+    bottom: 1.5rem;
+    width: 3.5rem;
+    height: 2.5rem;
+    border-style: none;
+    border-radius: 20px;
+    background-color: #212121;
+    color: #fff;
+    font-size: 10px;
+    font-family: arial;
+  }
+  
+  .submitbtn:hover {
+    background: #807780;
+  }

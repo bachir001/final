@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { useHistory } from 'react-router';
 import styles from './userdesign.module.css';
 import Sidebar from '../sidebar';
 import API from '../../../api';
@@ -12,6 +13,7 @@ function Newuser() {
     const [password, setPassword] = useState();
     const [email, setEmail] = useState();
     const [profilepic, setProfilepic] = useState();
+    let history=useHistory();
 
     var file;
 
@@ -19,7 +21,6 @@ function Newuser() {
         e.preventDefault(e);
         file = await e.target.files[0];
         setProfilepic(file);
-
     }
 
     const adduser = async (e) => {
@@ -39,7 +40,7 @@ function Newuser() {
                     'Accept': 'multipart/form-data',
                 },
             });
-            // console.log('hi', res);
+            history.push('/users')
 
         } catch (e) {
             console.log(e);

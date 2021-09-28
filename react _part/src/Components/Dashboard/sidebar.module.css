@@ -6,8 +6,9 @@
 
 
 
+/*(min-height: 550px)and */
 
-@media (min-height: 550px)and (min-width: 900px) {
+@media (min-width: 900px) {
     .sidebar {
         height: 100vh ;
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import API from '../../../api';
 import Sidebar from '../sidebar';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import styles from './userdesign.module.css';
 
 function Edituser({ match }) {
@@ -11,6 +12,7 @@ function Edituser({ match }) {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [profilepic, setProfilepic] = useState([]);
+    let history=useHistory();
 
  
 
@@ -53,7 +55,7 @@ function Edituser({ match }) {
                     'Accept': 'multipart/form-data',
                 },
             });
-            
+            history.push('/users');
 
         } catch (e) {
             console.log(e);

@@ -15,7 +15,7 @@ function homepage() {
             <div style={{marginTop:"20px"}}> <Aboutus /> </div>
 
             <br />
-            <div  style={{marginTop:"20px"}}> <Cardpart /> </div>
+             <Cardpart /> 
             <br/>
             <br/>
             <div  style={{marginTop:"20px"}}> <Footer /> </div>

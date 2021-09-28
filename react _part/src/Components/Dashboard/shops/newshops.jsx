@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import styles from '../users/userdesign.module.css';
 import { State, City } from 'country-state-city';
+import LoginStatus from '../../../LoginStatus';
 import Sidebar from '../sidebar';
 import API from '../../../api';
 
@@ -67,6 +68,7 @@ function Newshop() {
 
         <div className={styles.adduserwrapper}>
 
+            <LoginStatus />
             <Sidebar />
 
             <form onSubmit={addshop} className={styles.genralform}>

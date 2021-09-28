@@ -2,6 +2,7 @@ import { React, useState, useEffect  } from 'react';
 import { useHistory } from 'react-router';
 import styles from '../users/userdesign.module.css';
 import { State, City } from 'country-state-city';
+import LoginStatus from '../../../LoginStatus';
 import Sidebar from '../sidebar';
 import API from '../../../api';
 
@@ -20,6 +21,7 @@ function Editshop({ match }) {
     const [region, setRegion] = useState('nothing');
     const [cities, setCities] = useState([]);
     let history=useHistory();
+
 
 
     var file;
@@ -95,6 +97,8 @@ function Editshop({ match }) {
     return (
 
         <div className={styles.adduserwrapper}>
+
+            <LoginStatus/>
 
             <Sidebar />
 
