@@ -53,6 +53,9 @@ class ShopController {
 
     }
 
+
+
+
     // read by id 
 
     getshopbyid(req, res, next) {
@@ -64,6 +67,18 @@ class ShopController {
         })
     }
 
+
+    // read where accept is yes
+
+    getacceptedshops(req, res, next) {
+        Shop.find({accept:"yes"},(err, response) => {
+            if (err) return next(err);
+           return res.status(200).send(response);
+        });
+    }
+
+
+     
     // update shop 
 
     async updateshop(req, res, next) {

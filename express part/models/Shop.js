@@ -31,7 +31,7 @@ const ShopSchema = new Schema({
     },
     accept: {
         type: String,
-        default: "no",
+        default: "yes",
     }
 
 }, {

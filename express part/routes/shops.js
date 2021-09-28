@@ -27,6 +27,12 @@ router.post('/', upload.single('shopimg'), shopController.addshop);
 router.put('/:id', upload.single('shopimg'), shopController.updateshop);
 
 
+
+// get shops 
+router.get('/get/accepted', shopController.getacceptedshops);
+
+
+
 // delete shop 
 router.delete('/:id', shopController.deleteshop);
 
