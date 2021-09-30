@@ -1,6 +1,7 @@
-import { React, useState, useEffect  } from 'react';
+import { React, useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import styles from '../users/userdesign.module.css';
+import CookieService from '../../../CookieService';
 import { State, City } from 'country-state-city';
 import LoginStatus from '../../../LoginStatus';
 import Sidebar from '../sidebar';
@@ -13,6 +14,8 @@ import API from '../../../api';
 function Editshop({ match }) {
 
     const id = match.params.id;
+    const ide = CookieService.get("_id");
+    const role = CookieService.get("Role");
     const [shopname, setShopname] = useState();
     const [locationInfo, setLocationInfo] = useState();
     const [phonenumber, setPhonenumber] = useState();
@@ -20,7 +23,8 @@ function Editshop({ match }) {
     const [accept, setAccept] = useState();
     const [region, setRegion] = useState('nothing');
     const [cities, setCities] = useState([]);
-    let history=useHistory();
+
+    let history = useHistory();
 
 
 
@@ -75,7 +79,7 @@ function Editshop({ match }) {
             body.append('locationInfo', locationInfo);
             body.append('shopimg', shopimg);
             body.append('accept', accept);
-            body.append('shopadder', '614eee3bae058617c4e7c960');
+            body.append('shopadder', ide);
             await API.put(`shops/${id}`, body, {
                 headers: {
                     'Accept': 'multipart/form-data',
@@ -98,7 +102,7 @@ function Editshop({ match }) {
 
         <div className={styles.adduserwrapper}>
 
-            <LoginStatus/>
+            <LoginStatus />
 
             <Sidebar />
 
@@ -121,7 +125,7 @@ function Editshop({ match }) {
                     Select Region :
                     <br />
                     <select
-                        
+
                         name="regionInfo"
                         className="inputu"
                         onChange={e => dealwithregion(e.target.value)}
@@ -185,28 +189,33 @@ function Editshop({ match }) {
                     <p> </p>
                 )}
 
-                <div >
-                    <p style={{ fontSize: "18px" }}>  shop approvement : </p>
-                    <input
-                        type="radio"
-                        name="paid"
-                        value={"yes"}
-                        onChange={(e) => setAccept(e.target.value)}
-                        required
-                    />
-                    yes
+                {role !== "user" ? (
 
-                    <input
-                        type="radio"
-                        className={styles.noradio}
-                        name="paid"
-                        value={"no"}
-                        onChange={(e) => setAccept(e.target.value)}
-                        required
-                    />
-                    no
-                </div>
+                    <div >
+                        <p style={{ fontSize: "18px" }}>  shop approvement : </p>
+                        <input
+                            type="radio"
+                            name="accepted"
+                            value={"yes"}
+                            onChange={(e) => setAccept(e.target.value)}
+                            required
+                        />
+                        yes
 
+                        <input
+                            type="radio"
+                            className={styles.noradio}
+                            name="not accepted"
+                            value={"no"}
+                            onChange={(e) => setAccept(e.target.value)}
+                            required
+                        />
+                        no
+                    </div>
+                ) : (
+                    <p> </p>
+                )}
+                
                 <div>
                     <label htmlFor="pic" className={styles.chooseimg}>
                         choose image

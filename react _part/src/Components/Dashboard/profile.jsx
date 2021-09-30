@@ -1,9 +1,10 @@
-import {React,useState} from 'react';
+import { React, useState, useEffect } from 'react';
 import Sidebar from './sidebar';
 import API from '../../api';
 import styles from './users/userdesign.module.css';
+import CookieService from '../../CookieService';
 
-const id=1;
+const id = CookieService.get("_id");
 
 function Profile() {
 
@@ -13,10 +14,10 @@ function Profile() {
     const [email, setEmail] = useState('');
     const [profilepic, setProfilepic] = useState('');
 
-    const onChangeFile =  (e) => {
+    const onChangeFile = (e) => {
 
         e.preventDefault(e);
-       let file =  e.target.files[0];
+        let file = e.target.files[0];
         setProfilepic(file);
 
     }
@@ -36,17 +37,38 @@ function Profile() {
 
 
 
-             await API.put(`users/${id}`, body, {
+            await API.put(`users/${id}`, body, {
                 headers: {
                     'Accept': 'multipart/form-data',
                 },
             });
-            
+
 
         } catch (e) {
             console.log(e);
         }
     }
+
+
+
+    const getUser = async () => {
+        try {
+            await API.get(`users/${id}`).then((res) => {
+                const result = res.data;
+                setUsername(result.username);
+                setEmail(result.mail);
+                setProfilepic(result.profilepic);
+                setPassword(result.password);
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+
+    useEffect(() => {
+        getUser();
+    }, []);
 
 
 
@@ -58,28 +80,39 @@ function Profile() {
 
                 <Sidebar />
 
+
+
                 <form className={styles.genralform} onSubmit={edituser} >
 
 
-
+                    <div>
+                        <img
+                            className={styles.card_userimg}
+                            src={`http://localhost:3001/uploads/${profilepic}`}
+                            alt="logo img"
+                            height={150}
+                            width={250}
+                            style={{marginBottom:"20px"}}
+                        />
+                    </div>
 
                     <div>
 
                         <label className={styles.generalabel} htmlFor="">
                             username:
-                        <input className="inputu" type="text" name="username" value={username} required onChange={(e) => { setUsername(e.target.value) }} />
+                            <input className="inputu" type="text" name="username" value={username} onChange={(e) => { setUsername(e.target.value) }} />
                         </label>
 
 
                         <label className={styles.generalabel} htmlFor="">
                             Email:
-                        <input className="inputu" type="email" name="email" value={email} required onChange={(e) => { setEmail(e.target.value) }} />
+                            <input className="inputu" type="email" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                         </label>
 
 
                         <label className={styles.generalabel} htmlFor="">
                             password:
-                        <input className="inputu" type="password" name="password" required onChange={(e) => { setPassword(e.target.value) }} />
+                            <input className="inputu" type="password" name="password" required onChange={(e) => { setPassword(e.target.value) }} />
                         </label>
 
 

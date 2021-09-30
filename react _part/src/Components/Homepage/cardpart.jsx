@@ -20,9 +20,6 @@ function Cardpart() {
     };
 
 
-    //offer.slice(0, 5)
-    //offer.slice(0, 5).filter((offer) => offer._id !== detail._id).map((p=>
-
     useEffect(() => {
         getShops();
     }, []);
@@ -31,7 +28,7 @@ function Cardpart() {
         <div className="content">
             <div className="container">
                 <div className="row">
-                    {shops.slice(0, 3).map((sh) => {
+                    {shops.slice(0,3).map((sh) => {
                         return (
                             <div className="col-xs-12 col-sm-4">
                                 <div className="card">
@@ -47,8 +44,8 @@ function Cardpart() {
                                         </p>
                                     </div>
                                     <div className="card-read-more">
-                                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
-                                            Contact Shop
+                                        <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" className="btn btn-link btn-block">
+                                            Contact Shop <i class="fab fa-whatsapp"></i>
                                         </a>
                                     </div>
                                 </div>

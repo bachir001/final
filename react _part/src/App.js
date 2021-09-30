@@ -11,6 +11,8 @@ import Edituser from "./Components/Dashboard/users/edituser";
 import Shops from "./Components/Dashboard/shops/shops";
 import Newshop from "./Components/Dashboard/shops/newshops";
 import Editshop from "./Components/Dashboard/shops/editshops";
+import Addshop from "./Components/shopsp/addshop"
+import Shopsp from './Components/shopsp/shopsp';
 
 
 import './App.css';
@@ -32,6 +34,10 @@ function App() {
                 <Route exact path="/shops" component={Shops} />
                 <Route exact path="/shops/add" component={Newshop} />
                 <Route exact path="/shops/edit/:id" component={Editshop} />
+                <Route exact path="/shopsp" component={Shopsp}/>
+                <Route exact path="/addshop" component={Addshop}/>
+
+                
             </Switch>
         </BrowserRouter>
         

@@ -11,7 +11,6 @@ function homepage() {
             <Navbarvv />
             <Banner />
             <br />
-            <br />
             <div style={{marginTop:"20px"}}> <Aboutus /> </div>
 
             <br />

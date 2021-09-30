@@ -4,7 +4,7 @@ import CookieService from '../../CookieService';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import menu from './menu.svg'
-import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 
 
 function Navbarvv() {
@@ -47,27 +47,24 @@ function Navbarvv() {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="primary">
             <Container>
 
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/">
                     <ToolsIcon style={{ width: "30px" }} />
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ marginTop:"1.2rem", color:"#212529", backgroundImage:`url(${menu})` ,backgroundSize:"20px" ,backgroundRepeat:"no-repeat"}} />
                 <Navbar.Collapse id="responsive-navbar-nav" >
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
                     </Nav>
                     <Nav >
                         <Nav.Link eventKey={2} href="/">
-                            Home
+                            About Us
                         </Nav.Link>
 
                         {CookieService.get("Token") ? (
 
                             <NavDropdown style={{ color: '#0B58CA' }} title="Me" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                <NavDropdown.Item href="/addshop">Add Shop</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <Link to="" className="nav_link nav_logout"
                                     style={{ textDecoration: 'none', color: "#1E2125", marginLeft: "12px" }}
@@ -83,7 +80,7 @@ function Navbarvv() {
                         )}
 
 
-                        <Nav.Link href="#deets">GPS</Nav.Link>
+                        <Nav.Link href="/shopsp">Shops</Nav.Link>
 
 
                     </Nav>

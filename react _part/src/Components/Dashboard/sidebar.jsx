@@ -1,6 +1,7 @@
 
 import React from 'react';
 import styles from './sidebar.module.css';
+import CookieService from '../../CookieService';
 
 import {
     CDBSidebar,
@@ -12,6 +13,9 @@ import {
 import { NavLink } from 'react-router-dom';
 
 function Navbardash() {
+
+ const role= CookieService.get("Role");
+
     return (
         <div
             className={styles.sidebar}
@@ -29,34 +33,23 @@ function Navbardash() {
 
                 <CDBSidebarContent className="sidebar-content">
                     <CDBSidebarMenu>
+                        
                         <NavLink style={{ textDecoration: "none" }} exact to="/profile" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="user">Profile </CDBSidebarMenuItem>
                         </NavLink>
                         <NavLink style={{ textDecoration: "none" }} exact to="/shops" activeClassName="activeClicked">
-                            <CDBSidebarMenuItem ><i class="fas fa-cogs"></i>shops</CDBSidebarMenuItem>
+                            <CDBSidebarMenuItem ><i className="fas fa-cogs"></i>shops</CDBSidebarMenuItem>
                         </NavLink>
+                        {role !== "user" ? (
+
                         <NavLink style={{ textDecoration: "none" }} exact to="/users" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="table">users</CDBSidebarMenuItem>
                         </NavLink>
                         
-                        <NavLink style={{ textDecoration: "none" }} exact to="/analytics" activeClassName="activeClicked">
-                            <CDBSidebarMenuItem icon="chart-line">
-                                Analytics
-                            </CDBSidebarMenuItem>
-                        </NavLink>
-
-                        <NavLink
-                            style={{ textDecoration: "none" }}
-                            exact
-                            to="/hero404"
-                            target="_blank"
-                            activeClassName="activeClicked"
-                        >
-                            <CDBSidebarMenuItem icon="exclamation-circle">
-                                404 page
-                            </CDBSidebarMenuItem>
-                        </NavLink>
-
+                        ) : (
+                            <p> </p>
+                        )}
+    
                     </CDBSidebarMenu>
                 </CDBSidebarContent>
 
