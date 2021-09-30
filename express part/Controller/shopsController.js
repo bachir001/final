@@ -181,10 +181,12 @@ class ShopController {
             var shop = response;
             if (accept === undefined) {
                 accept = shop.accept
+                console.log(accept);
             }
         })
 
         Shop.updateOne({ _id: id }, {
+
             $set: {
                 body,
                 locationInfo,
@@ -196,7 +198,6 @@ class ShopController {
             }
 
         }, (err, response) => {
-
             if (err) return res.send(err);
             res.status(200).send(response);
         });
