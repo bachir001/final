@@ -19,6 +19,18 @@ class ShopController {
         });
     }
 
+
+    // read all shops of this adder
+
+    getshopbyadder(req, res, next) {
+        let {adder} = req.params;
+        Shop.find({shopadder:adder,accept: "yes"}, (err, response) => {
+            if (err) return next(err);
+            return res.status(200).send(response);
+        });
+    }
+
+
     // add  a shop 
     async addshop(req, res, next) {
 
@@ -71,14 +83,26 @@ class ShopController {
     // read where accept is yes
 
     getacceptedshops(req, res, next) {
-        Shop.find({accept:"yes"},(err, response) => {
+        Shop.find({ accept: "yes" }, (err, response) => {
             if (err) return next(err);
-           return res.status(200).send(response);
+            return res.status(200).send(response);
+        });
+    }
+
+    // read shops by location
+
+    getshopbylocation(req, res, next) {
+
+        let {location} = req.params;
+        Shop.find({locationInfo:location,accept: "yes"}, (err, response) => {
+            if (err) return next(err);
+            return res.status(200).send(response);
         });
     }
 
 
-     
+
+
     // update shop 
 
     async updateshop(req, res, next) {

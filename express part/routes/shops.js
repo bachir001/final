@@ -5,7 +5,6 @@ var router = express.Router();
 
 module.exports = (upload) => {
 
-
 /* GET shops listing. */
 router.get('/', shopController.getAllshops);
 
@@ -30,6 +29,16 @@ router.put('/:id', upload.single('shopimg'), shopController.updateshop);
 
 // get shops 
 router.get('/get/accepted', shopController.getacceptedshops);
+
+
+//get shops via location
+router.get('/getl/:location', shopController.getshopbylocation);
+
+
+//get accepted shops of specific adder 
+
+router.get('/geta/:adder', shopController.getshopbyadder);
+
 
 
 

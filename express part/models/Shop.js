@@ -14,7 +14,7 @@ const ShopSchema = new Schema({
         required: true,
     },
     phonenumber: {
-        type: Number,
+        type: String,
         trim: true,
         maxLength: 8,
         unique: true,
