@@ -145,7 +145,7 @@ function Shops() {
                 </div>
 
             ) : (
-                <div className={styles.shopscard}>
+                <div className={styles.shopscard} style={{height:"100vh"}} >
 
                 <Addcard title="Add Shops" route="/shops/add" />
                 {usershops.map((sh) => {

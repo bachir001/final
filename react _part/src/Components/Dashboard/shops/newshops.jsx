@@ -169,7 +169,7 @@ function Newshop() {
                         <input
                             type="radio"
                             className={styles.noradio}
-                            name="not accepted"
+                            name="notaccepted"
                             value={"no"}
                             onChange={(e) => setAccept(e.target.value)}
                             required

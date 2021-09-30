@@ -151,7 +151,7 @@ function Newshop() {
 
 
                 <div>
-                    <label htmlFor="pic" className={styles.chooseimg}>
+                    <label htmlFor="pic" className={styles.chooseimg} >
                         choose image
                     </label>
                     <input className={styles.fileinput} type="file" id="pic" accept="image/*" multiple={false} onChange={onChangeFile} required />

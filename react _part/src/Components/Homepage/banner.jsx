@@ -14,7 +14,7 @@ function banner() {
             bgImage={back} strength={450}
         >
             <div className={styles.bg_container}>
-                <p className={styles.bg_p}> "The Mechanic, wherever you are get some help" </p>
+                <p className={styles.bg_p}> "Wherever you are, you can get some help" </p>
             </div>
 
         </Parallax>

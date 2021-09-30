@@ -59,7 +59,10 @@ function Editshop({ match }) {
                 setShopname(result.shopname);
                 setLocationInfo(result.locationInfo);
                 setPhonenumber(result.phonenumber);
-                setShopimg(result.shopimg)
+                setShopimg(result.shopimg);
+                setAccept(result.accept);
+                // console.log("result",result.accept);
+
             });
         } catch (e) {
             console.log(e);
@@ -80,6 +83,7 @@ function Editshop({ match }) {
             body.append('shopimg', shopimg);
             body.append('accept', accept);
             body.append('shopadder', ide);
+
             await API.put(`shops/${id}`, body, {
                 headers: {
                     'Accept': 'multipart/form-data',
@@ -198,17 +202,17 @@ function Editshop({ match }) {
                             name="accepted"
                             value={"yes"}
                             onChange={(e) => setAccept(e.target.value)}
-                            required
+                            
                         />
                         yes
 
                         <input
                             type="radio"
                             className={styles.noradio}
-                            name="not accepted"
+                            name="notaccepted"
                             value={"no"}
                             onChange={(e) => setAccept(e.target.value)}
-                            required
+                            
                         />
                         no
                     </div>

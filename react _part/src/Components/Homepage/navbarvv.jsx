@@ -12,14 +12,14 @@ function Navbarvv() {
     let history = useHistory();
 
     if (CookieService.get("Token")) {
-        var id =CookieService.get("_id");
+        var id = CookieService.get("_id");
     }
 
 
     const logoutevent = async (e) => {
 
         e.preventDefault();
-      //  1070FD
+        //  1070FD
         try {
             const res = await fetch(`http://localhost:3001/users/logout/${id}`, {
                 method: "post",
@@ -44,25 +44,22 @@ function Navbarvv() {
 
     return (
 
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="primary">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="danger">
             <Container>
 
                 <Navbar.Brand href="/">
-                    <ToolsIcon style={{ width: "30px" }} />
+                    <ToolsIcon style={{ width: "30px" ,color:"#fff"}} />
                 </Navbar.Brand>
 
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ marginTop:"1.2rem", color:"#212529", backgroundImage:`url(${menu})` ,backgroundSize:"20px" ,backgroundRepeat:"no-repeat"}} />
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ marginTop: "1.2rem", color: "#212529", backgroundImage: `url(${menu})`, backgroundSize: "20px", backgroundRepeat: "no-repeat" }} />
                 <Navbar.Collapse id="responsive-navbar-nav" >
-                    <Nav className="me-auto">
+                    <Nav className="me-auto" >
                     </Nav>
                     <Nav >
-                        <Nav.Link eventKey={2} href="/">
-                            About Us
-                        </Nav.Link>
 
                         {CookieService.get("Token") ? (
 
-                            <NavDropdown style={{ color: '#0B58CA' }} title="Me" id="collasible-nav-dropdown">
+                            <NavDropdown style={{ color: '#fff' }} title="Me" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                                 <NavDropdown.Item href="/addshop">Add Shop</NavDropdown.Item>
                                 <NavDropdown.Divider />
@@ -75,13 +72,14 @@ function Navbarvv() {
                             </NavDropdown>
                         ) : (
 
-                            <Nav.Link href="/signin">Signin</Nav.Link>
+                            <Nav.Link href="/signin" style={{ color: '#fff' }}>Signin</Nav.Link>
 
                         )}
 
 
-                        <Nav.Link href="/shopsp">Shops</Nav.Link>
+                        <Nav.Link href="/shopsp" style={{ color: '#fff' }}>Shops</Nav.Link>
 
+                  
 
                     </Nav>
 

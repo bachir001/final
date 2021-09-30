@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { ToolsIcon } from '@iconbox/oct';
 import { State, City } from 'country-state-city';
 import Navbarvv from '../Homepage/navbarvv';
-import { Link } from 'react-router-dom';
 
 // shopsp go for shops page //
 
@@ -60,7 +59,7 @@ function Shopsp() {
                     <div>
                         <ToolsIcon style={{ width: "70px", color: "#0B58CA", marginBottom: "2rem" }} />
                         <h1 className="heading" style={{ color: "#0B58CA", marginLeft: "1rem" }}>
-                            find shops
+                            Find Shops
                         </h1>
                     </div>
 

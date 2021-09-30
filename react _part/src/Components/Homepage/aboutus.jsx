@@ -9,12 +9,10 @@ function Aboutus() {
         <div>
             <div>
                 <Link className="linksite" > <h3>About US </h3> </Link>
-             
-                    The Mechanic Site is a site that offer 
-                    help for any one faced a mechanical
-                <p>
-                    problem while he is driving in a foreing place .
-                </p>
+
+                <p>The Mechanic is a site that offers </p>
+                <p>help for any one facing mechanical issues</p>
+
             </div>
         </div >
     )
