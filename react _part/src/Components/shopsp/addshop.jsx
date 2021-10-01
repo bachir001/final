@@ -74,13 +74,13 @@ function Newshop() {
 
                 <label htmlFor="shopname" className={styles.generalabel} style={{ marginTop: "3rem" }}>
                     shopname :
-                    <input className="inputu" type="text" name="shopname" required onChange={(e) => { setShopname(e.target.value) }} />
+                    <input autoComplete="off" className="inputu" type="text" name="shopname" required onChange={(e) => { setShopname(e.target.value) }} />
                 </label>
 
 
                 <label htmlFor="phonenumber" className={styles.generalabel}>
                     phonenumber :
-                    <input className="inputu" type="text" name="phonenumber" required onChange={(e) => { setPhonenumber(e.target.value) }} />
+                    <input autoComplete="off" className="inputu" type="text" name="phonenumber" required onChange={(e) => { setPhonenumber(e.target.value) }} />
                 </label>
 
 
@@ -154,11 +154,11 @@ function Newshop() {
                     <label htmlFor="pic" className={styles.chooseimg} >
                         choose image
                     </label>
-                    <input className={styles.fileinput} type="file" id="pic" accept="image/*" multiple={false} onChange={onChangeFile} required />
+                    <input autoComplete="off" className={styles.fileinput} type="file" id="pic" accept="image/*" multiple={false} onChange={onChangeFile} required />
                 </div>
 
                 <div>
-                    <input className={styles.submitbtn} type="submit" value="Add" />
+                    <input autoComplete="off" className={styles.submitbtn} type="submit" value="Add" />
                 </div>
 
             </form>

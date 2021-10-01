@@ -53,6 +53,10 @@ height: 100%;
   color: #61dafb;
 }
 
+.navdrop:hover{
+  color: #0B58CA !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

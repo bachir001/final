@@ -133,7 +133,7 @@ function Shopsp() {
                     <div className="content">
                         <div className="container">
                             <div className="row">
-                                {shops.slice(0, 3).map((sh) => {
+                                {shops.map((sh) => {
                                     return (
                                         <div className="col-xs-12 col-sm-4">
                                             <div className="card">

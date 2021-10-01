@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { useHistory } from 'react-router';
 import styles from '../users/userdesign.module.css';
 import CookieService from '../../../CookieService';
 import { State, City } from 'country-state-city';
@@ -20,7 +21,7 @@ function Newshop() {
     const role = CookieService.get("Role");
 
 
-
+    const history = useHistory();
     const leb = State.getStatesOfCountry('LB');
 
 
@@ -61,6 +62,8 @@ function Newshop() {
                 },
             });
 
+            history.push("/shops")
+
         } catch (e) {
             console.log(e);
         }
@@ -78,13 +81,13 @@ function Newshop() {
 
                 <label htmlFor="shopname" className={styles.generalabel}>
                     shopname :
-                    <input className="inputu" type="text" name="shopname" required onChange={(e) => { setShopname(e.target.value) }} />
+                    <input autoComplete="off" className="inputu" type="text" name="shopname" required onChange={(e) => { setShopname(e.target.value) }} />
                 </label>
 
 
                 <label htmlFor="phonenumber" className={styles.generalabel}>
                     phonenumber :
-                    <input className="inputu" type="text" name="phonenumber" required onChange={(e) => { setPhonenumber(e.target.value) }} />
+                    <input autoComplete="off" className="inputu" type="text" name="phonenumber" required onChange={(e) => { setPhonenumber(e.target.value) }} />
                 </label>
 
 
@@ -162,7 +165,7 @@ function Newshop() {
                             name="accepted"
                             value={"yes"}
                             onChange={(e) => setAccept(e.target.value)}
-                            required
+
                         />
                         yes
 
@@ -172,7 +175,7 @@ function Newshop() {
                             name="notaccepted"
                             value={"no"}
                             onChange={(e) => setAccept(e.target.value)}
-                            required
+
                         />
                         no
                     </div>

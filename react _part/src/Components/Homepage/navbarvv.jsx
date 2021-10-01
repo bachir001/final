@@ -48,7 +48,7 @@ function Navbarvv() {
             <Container>
 
                 <Navbar.Brand href="/">
-                    <ToolsIcon style={{ width: "30px" ,color:"#fff"}} />
+                    <ToolsIcon className="navdrop" style={{ width: "30px" ,color:"#fff"}} />
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{ marginTop: "1.2rem", color: "#212529", backgroundImage: `url(${menu})`, backgroundSize: "20px", backgroundRepeat: "no-repeat" }} />
@@ -59,7 +59,7 @@ function Navbarvv() {
 
                         {CookieService.get("Token") ? (
 
-                            <NavDropdown style={{ color: '#fff' }} title="Me" id="collasible-nav-dropdown">
+                            <NavDropdown className="navdrop" style={{ color: '#fff' }} title="Me" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                                 <NavDropdown.Item href="/addshop">Add Shop</NavDropdown.Item>
                                 <NavDropdown.Divider />
@@ -72,12 +72,12 @@ function Navbarvv() {
                             </NavDropdown>
                         ) : (
 
-                            <Nav.Link href="/signin" style={{ color: '#fff' }}>Signin</Nav.Link>
+                            <Nav.Link className="navdrop" href="/signin" style={{ color: '#fff' }}>Signin</Nav.Link>
 
                         )}
 
 
-                        <Nav.Link href="/shopsp" style={{ color: '#fff' }}>Shops</Nav.Link>
+                        <Nav.Link className="navdrop" href="/shopsp" style={{ color: '#fff' }}>Shops</Nav.Link>
 
                   
 
