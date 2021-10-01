@@ -30,6 +30,9 @@ router.put('/:id', upload.single('shopimg'), shopController.updateshop);
 // get shops 
 router.get('/get/accepted', shopController.getacceptedshops);
 
+// get latest 
+// router.get('/getl/latestacc', shopController.getlatestshops);
+
 
 //get shops via location
 router.get('/getl/:location', shopController.getshopbylocation);

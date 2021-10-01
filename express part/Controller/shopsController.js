@@ -23,8 +23,8 @@ class ShopController {
     // read all shops of this adder
 
     getshopbyadder(req, res, next) {
-        let {adder} = req.params;
-        Shop.find({shopadder:adder,accept: "yes"}, (err, response) => {
+        let { adder } = req.params;
+        Shop.find({ shopadder: adder, accept: "yes" }, (err, response) => {
             if (err) return next(err);
             return res.status(200).send(response);
         });
@@ -89,12 +89,27 @@ class ShopController {
         });
     }
 
+
+    // get latest
+
+
+    // getlatestshops(req, res, next) {
+    //     Shop.find({ accept: "yes" }).sort({$natural: -1})
+    //     .limit(3, (err, response) => {
+    //         if (err) return next(err);
+    //         return res.status(200).send(response);
+    //     });
+    // }
+
+ 
+
+
     // read shops by location
 
     getshopbylocation(req, res, next) {
 
-        let {location} = req.params;
-        Shop.find({locationInfo:location,accept: "yes"}, (err, response) => {
+        let { location } = req.params;
+        Shop.find({ locationInfo: location, accept: "yes" }, (err, response) => {
             if (err) return next(err);
             return res.status(200).send(response);
         });
