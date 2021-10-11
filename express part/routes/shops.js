@@ -44,11 +44,8 @@ router.get('/geta/:adder', shopController.getshopbyadder);
 
 
 
-
 // delete shop 
 router.delete('/:id', shopController.deleteshop);
-
-
 
 
 // test router  
