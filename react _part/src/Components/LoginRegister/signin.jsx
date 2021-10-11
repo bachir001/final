@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { React, useState } from 'react';
 import { useHistory } from 'react-router';
 import CookieService from '../../CookieService';
@@ -12,7 +13,7 @@ import swal from 'sweetalert';
 function Signin() {
 
 
-    let history=useHistory();
+    let history = useHistory();
 
 
     const [state, setValue] = useState({
@@ -56,8 +57,8 @@ function Signin() {
                     CookieService.set('Token', result.Token, options);
                     CookieService.set('_id', result._id, options);
                     CookieService.set('Role', result.Role, options);
-                    
-                    if(CookieService.get("Token")&& CookieService.get("_id")&& CookieService.get("Role")){
+
+                    if (CookieService.get("Token") && CookieService.get("_id") && CookieService.get("Role")) {
                         history.push('/');
                     }
                 } else {
@@ -91,6 +92,9 @@ function Signin() {
                         <input type="password" placeholder="password" name="password" className="inputu" onChange={handleChange} />
                     </label>
                     <input className={styles.submitbtn} type="submit" value="signin" />
+                    <div className={styles.registerlink}>
+                        Not a User <Link className='linksite' to={`/register`}> Be One</Link>
+                    </div>
                 </form>
             </div>
 

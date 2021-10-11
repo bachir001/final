@@ -44,8 +44,8 @@ function Cardpart() {
                                         </p>
                                     </div>
                                     <div className="card-read-more">
-                                        <a href={`https://wa.me/961${sh.phonenumber}`} class="btn btn-link btn-block" target="_blank">
-                                            Contact Shop <i class="fab fa-whatsapp"></i>
+                                        <a href={`https://wa.me/961${sh.phonenumber}`} className="btn btn-link btn-block" target="_blank" rel="noreferrer">
+                                            Contact Shop <i className="fab fa-whatsapp"></i>
                                         </a>
                                     </div>
                                 </div>

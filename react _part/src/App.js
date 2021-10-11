@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch,  } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import Signin from './Components/LoginRegister/signin';
-import Signup from './Components/LoginRegister/signup';
+import Register from'./Components/LoginRegister/register';
 import Homepage from './Components/Homepage/homepage';
 import Profile from "./Components/Dashboard/profile";
 import Users from "./Components/Dashboard/users/users";
@@ -24,7 +24,7 @@ function App() {
         <BrowserRouter>
             <Switch>
                 <Route path="/signin" component={Signin} />
-                <Route path="/signup" component={Signup} />
+                <Route path="/register" component={Register} />
                 <Route exact path="/" component={Homepage} />
                 <Route exact path="/HomePage" component={Homepage} />
                 <Route path="/profile" component={Profile} />

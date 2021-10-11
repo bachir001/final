@@ -1,29 +1,32 @@
 .genralform {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
-  }
+  display: block;
+  position: relative;
+  width: 50%;
+  top: 25vh;
+  margin: auto;
+}
 
-  .generalabel {
-    display: block;
-    width: 100%;
-  }
-  
+.generalabel {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
 
-  .submitbtn {
-    position: relative;
-    bottom: 1.5rem;
-    width: 3.5rem;
-    height: 2.5rem;
-    border-style: none;
-    border-radius: 20px;
-    background-color: #212121;
-    color: #fff;
-    font-size: 10px;
-    font-family: arial;
-  }
-  
-  .submitbtn:hover {
-    background: #807780;
-  }
+.submitbtn {
+  width: 3.5rem;
+  height: 2.5rem;
+  border-style: none;
+  border-radius: 20px;
+  background-color: #212121;
+  color: #fff;
+  font-size: 10px;
+  font-family: arial;
+}
+
+.submitbtn:hover {
+  background: #807780;
+}
+
+.registerlink {
+  margin-top: 15px;
+}
