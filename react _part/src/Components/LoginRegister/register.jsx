@@ -62,9 +62,9 @@ function Register() {
 
                 if (result.data.Token) {
                     const options = { path: '/', };
-                    CookieService.set('Token', result.Token, options);
-                    CookieService.set('_id', result._id, options);
-                    CookieService.set('Role', result.Role, options);
+                    CookieService.set('Token', result.data.Token, options);
+                    CookieService.set('_id', result.data._id, options);
+                    CookieService.set('Role', result.data.Role, options);
 
                     if (CookieService.get("Token") && CookieService.get("_id") && CookieService.get("Role")) {
                         history.push('/');
