@@ -81,7 +81,6 @@ function Profile() {
                 <Sidebar />
 
 
-
                 <form className={styles.genralform} onSubmit={edituser} >
 
 

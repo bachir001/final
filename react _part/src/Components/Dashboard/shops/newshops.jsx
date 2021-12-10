@@ -162,7 +162,7 @@ function Newshop() {
                         <p style={{ fontSize: "18px" }}>  shop approvement : </p>
                         <input
                             type="radio"
-                            name="accepted"
+                            name="accept_status"
                             value={"yes"}
                             onChange={(e) => setAccept(e.target.value)}
 
@@ -172,7 +172,7 @@ function Newshop() {
                         <input
                             type="radio"
                             className={styles.noradio}
-                            name="notaccepted"
+                            name="accept_status"
                             value={"no"}
                             onChange={(e) => setAccept(e.target.value)}
 

@@ -1,6 +1,8 @@
 .userswrapper {
   display: flex;
   height: 100%;
+  position: fixed;
+
 }
 
 .flex_cards {
@@ -160,4 +162,15 @@ margin-bottom:30px ;
     transition: 0.3s;
     height: 12.5rem;
   }
+}
+
+@media only screen and (max-width: 768px) {
+
+  /* For mobile phones: */
+
+  .userswrapper {
+    position: static;
+  }
+
+
 }
