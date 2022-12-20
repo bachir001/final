@@ -11,8 +11,8 @@ const SubscriberSchema = new Schema({
     },
     subsmail: {
         type: String,
-        unique: true,
-        trim: true,
+        unique:true,
+        trim:true,
         maxLength: 30,
         required: true,
         lowercase: true,

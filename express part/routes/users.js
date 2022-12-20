@@ -19,7 +19,7 @@ module.exports = (upload) => {
 
   // login
   router.post('/login', usersController.login)
-
+  
   //logout
   router.get('/logout/:id', usersController.logout)
 
