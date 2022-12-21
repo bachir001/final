@@ -5,8 +5,12 @@ import CookieService from '../../CookieService';
 import styles from '../Dashboard/users/userdesign.module.css';
 import Navbarvv from '../Homepage/navbarvv';
 import API from '../../api';
+import { useHistory } from 'react-router-dom';
+
 
 function Newshop() {
+
+    const history = useHistory();
 
     const [shopname, setShopname] = useState();
     const [locationInfo, setLocationInfo] = useState();
@@ -56,6 +60,8 @@ function Newshop() {
                     'Accept': 'multipart/form-data',
                 },
             });
+
+            history.push('/shops');
             console.log("res",res);
 
         } catch (e) {

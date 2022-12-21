@@ -40,6 +40,9 @@ function Navbardash() {
                         <NavLink style={{ textDecoration: "none" }} exact to="/shops" activeClassName="activeClicked">
                             <CDBSidebarMenuItem ><i className="fas fa-cogs"></i>shops</CDBSidebarMenuItem>
                         </NavLink>
+                        <NavLink style={{ textDecoration: "none" }} exact to="/" activeClassName="activeClicked">
+                            <CDBSidebarMenuItem ><i className="fa fa-home"></i>Home</CDBSidebarMenuItem>
+                        </NavLink>
                         {role !== "user" ? (
 
                         <NavLink style={{ textDecoration: "none" }} exact to="/users" activeClassName="activeClicked">

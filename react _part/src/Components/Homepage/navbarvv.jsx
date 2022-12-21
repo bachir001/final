@@ -7,6 +7,8 @@ import menu from './menu.svg'
 import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 
 
+const x = {};
+
 function Navbarvv() {
 
     let history = useHistory();
