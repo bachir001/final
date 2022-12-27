@@ -23,7 +23,7 @@ function Navbarvv() {
         e.preventDefault();
         //  1070FD
         try {
-            const res = await fetch(`http://localhost:3001/users/logout/${id}`, {
+            const res = await fetch(`hhttps://mechanical-delivery.onrender.com/users/logout/${id}`, {
                 method: "post",
             });
             if (res) {
