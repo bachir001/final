@@ -73,13 +73,13 @@ function Navbarvv() {
                                 </Link>
                             </NavDropdown>
                         ) : (
-                            <Link className="navdrop" style={{ textDecoration: 'none', color: "#1E2125", marginLeft: "12px" }}to="/signin">signin</Link>
+                            <Link className="navdrop" style={{ textDecoration: 'none', marginLeft: "12px" }}to="/signin">signin</Link>
                             
                             // <Nav.Link className="navdrop" href="/signin" style={{ color: '#fff' }}>Signin</Nav.Link>
 
                         )}
 
-                        <Link className="navdrop" style={{ textDecoration: 'none', color: "#1E2125" }} to="/shopsp"> Shops </Link>
+                        <Link className="navdrop" style={{ textDecoration: 'none' }} to="/shopsp"> Shops </Link>
 
                         {/* <Nav.Link className="navdrop" href="/shopsp" style={{ color: '#fff' }}>Shops</Nav.Link> */}
 
