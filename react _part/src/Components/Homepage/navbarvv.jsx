@@ -62,8 +62,8 @@ function Navbarvv() {
                         {CookieService.get("Token") ? (
 
                             <NavDropdown className="navdrop" style={{ color: '#fff' }} title="Me" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                                <NavDropdown.Item href="/addshop">Add Shop</NavDropdown.Item>
+                                <NavDropdown.Item><Link className="navdrop" style={{ textDecoration: 'none', marginLeft: "12px"}}to="/profile">Profile</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link className="navdrop" style={{ textDecoration: 'none', marginLeft: "12px"}}to="/addshop">Add Shop</Link></NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <Link to="" className="nav_link nav_logout"
                                     style={{ textDecoration: 'none', color: "#1E2125", marginLeft: "12px" }}
@@ -73,17 +73,10 @@ function Navbarvv() {
                                 </Link>
                             </NavDropdown>
                         ) : (
-                            <Link className="navdrop" style={{ textDecoration: 'none', marginLeft: "12px"}}to="/signin">signin</Link>
-                            
-                            // <Nav.Link className="navdrop" href="/signin" style={{ color: '#fff' }}>Signin</Nav.Link>
-
+                            <Nav.Link className="navdrop"> <Link  to="/signin">signin</Link></Nav.Link>
                         )}
 
-                        <Link className="navdrop" style={{ textDecoration: 'none' , marginLeft: "12px"}} to="/shopsp"> Shops </Link>
-
-                        {/* <Nav.Link className="navdrop" href="/shopsp" style={{ color: '#fff' }}>Shops</Nav.Link> */}
-
-                  
+                        <Nav.Link className="navdrop"> <Link to="/shopsp">Shops</Link> </Nav.Link>
 
                     </Nav>
 
